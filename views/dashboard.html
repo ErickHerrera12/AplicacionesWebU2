@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Control | Gestión de Reservas y Recursos</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <h1>Gestión de Reservas y Recursos Académicos</h1>
+    <div class="user-badge">
+      <span id="userDisplay">Cargando perfil...</span>
+      <button id="btnLogout" class="btn-secondary">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Columna Izquierda: CRUD de Reservas -->
+    <section>
+      <!-- Formulario de Creación -->
+      <div class="card">
+        <h2>Registrar Nueva Reserva</h2>
+        <form id="formReserva" enctype="multipart/form-data">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="recurso">Recurso / Laboratorio</label>
+              <select id="recurso" name="recurso" required>
+                <option value="">Seleccione un recurso...</option>
+                <option value="Laboratorio de Cómputo 1">Laboratorio de Cómputo 1</option>
+                <option value="Laboratorio de Redes y Telecomunicaciones">Laboratorio de Redes y Telecomunicaciones</option>
+                <option value="Auditorio Bloque B">Auditorio Bloque B</option>
+                <option value="Sala de Conferencias 3">Sala de Conferencias 3</option>
+                <option value="Proyector Multimedia #4">Proyector Multimedia #4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </div>
+            <div class="form-group">
+              <label for="horaInicio">Hora Inicio</label>
+              <input type="time" id="horaInicio" name="horaInicio" required>
+            </div>
+            <div class="form-group">
+              <label for="horaFin">Hora Fin</label>
+              <input type="time" id="horaFin" name="horaFin" required>
+            </div>
+            <div class="form-group full-width">
+              <label for="proposito">Propósito Académico / Detalle</label>
+              <input type="text" id="proposito" name="proposito" placeholder="Ej. Taller práctico de sockets con Node.js" required>
+            </div>
+            <div class="form-group full-width">
+              <label for="comprobante">Adjuntar Autorización / Comprobante (PDF o Imagen)</label>
+              <input type="file" id="comprobante" name="comprobante" accept=".pdf,image/png,image/jpeg">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">Guardar Reserva</button>
+        </form>
+      </div>
+
+      <!-- Tabla de Listado -->
+      <div class="card">
+        <h2>Reservas Vigentes</h2>
+        <div class="table-responsive">
+          <table id="tablaReservas">
+            <thead>
+              <tr>
+                <th>Recurso</th>
+                <th>Fecha / Horario</th>
+                <th>Propósito</th>
+                <th>Estado</th>
+                <th>Documento</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Se renderiza vía JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Columna Derecha: Feed en Tiempo Real y Chat Colaborativo -->
+    <aside>
+      <div class="card chat-box">
+        <h2>Feed de Actividad en Vivo</h2>
+        <div class="chat-messages" id="activityFeed">
+          <div class="activity-item">
+            <div>Sistema iniciado y sincronizado en tiempo real.</div>
+            <span class="time">Inicio de servicio</span>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Escriba un mensaje a la comunidad...">
+          <button id="btnEnviarMensaje" class="btn-primary">Enviar</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

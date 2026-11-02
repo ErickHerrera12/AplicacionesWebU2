@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso al Sistema | Gestión de Recursos UPS</title>
+  <link rel="stylesheet" href="/css/styles.css?v=1.1">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1>Sistema de Reservas</h1>
+      <p>Universidad Politécnica Salesiana</p>
+
+      <!-- Selector segmentado estilizado -->
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tabLogin">Iniciar Sesión</button>
+        <button type="button" class="auth-tab" id="tabRegister">Crear Cuenta</button>
+      </div>
+      
+      <div id="alertContainer"></div>
+
+      <!-- Formulario 1: Inicio de Sesión -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Correo Institucional</label>
+          <input type="email" id="loginEmail" required placeholder="docente@ups.edu.ec">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Ingresar al Panel</button>
+      </form>
+
+      <!-- Formulario 2: Creación de Cuenta (Registro) -->
+      <form id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label for="regNombre">Nombre Completo</label>
+          <input type="text" id="regNombre" required placeholder="Ing. Carlos Pérez">
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Correo Institucional</label>
+          <input type="email" id="regEmail" required placeholder="cperez@ups.edu.ec">
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Contraseña (Mínimo 6 caracteres)</label>
+          <input type="password" id="regPassword" required minlength="6" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label for="regRol">Rol Académico</label>
+          <select id="regRol" required>
+            <option value="DOCENTE">Docente</option>
+            <option value="ESTUDIANTE">Estudiante</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Registrar Usuario</button>
+      </form>
+
+    </div>
+  </div>
+  <script src="/js/login.js"></script>
+</body>
+</html>
