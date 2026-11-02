@@ -1,0 +1,35 @@
+# Dependencias de Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.bak
+
+# Variables de entorno y secretos locales
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos subidos por los usuarios (uploads)
+# Ignora todo el contenido de uploads excepto el archivo .gitkeep para conservar la carpeta en el repo
+uploads/*
+!uploads/.gitkeep
+
+# Logs del servidor y procesos
+logs/
+*.log
+
+# Archivos de entorno y configuración de editores (VS Code, JetBrains)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos temporales de sistemas operativos
+.DS_Store
+Thumbs.db
